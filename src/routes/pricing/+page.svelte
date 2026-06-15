@@ -28,7 +28,7 @@
       price: "$12,500",
       timeframe: "4\u201310 weeks",
       description:
-        "A complete rebuild of your digital presence \u2014 strategy, copy, design, and implementation \u2014 built around your positioning to convert the right visitors into clients.",
+        "A complete rebuild of your digital presence - strategy, copy, design, and implementation - built around your positioning to convert the right visitors into clients.",
       link: "/presence",
     },
     {
@@ -82,13 +82,7 @@
         "-=0.6",
       );
 
-    const sections = [
-      introRef,
-      journeyRef,
-      howRef,
-      returnRef,
-      ctaRef,
-    ];
+    const sections = [introRef, journeyRef, howRef, returnRef, ctaRef];
     sections.forEach((el) => {
       if (!el) return;
       gsap.fromTo(
@@ -172,8 +166,7 @@
         class="text-[13vw] md:text-[7vw] font-serif leading-[0.85] tracking-tighter"
       >
         The most expensive thing<br />
-        <span class="italic text-white/40">is a market that doesn't</span
-        ><br />
+        <span class="italic text-white/40">is a market that doesn't</span><br />
         know you exist.
       </h1>
       <p
@@ -181,7 +174,7 @@
         class="text-lg md:text-xl text-white/50 max-w-3xl mx-auto mt-12 font-sans font-light leading-relaxed"
       >
         Our engagements are structured to deliver disproportionate return. Not
-        because we're cheap &mdash; because the right positioning, presence, and
+        because we're cheap, but because the right positioning, presence, and
         visibility changes what your business can command.
       </p>
     </div>
@@ -204,20 +197,23 @@
         foundation, build the presence, sustain the visibility, scale with a
         partner.
       </p>
-      <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 reveal">
-        {#each [
-          { name: "Authority\u2122", role: "Foundation" },
-          { name: "Presence\u2122", role: "Credibility" },
-          { name: "Influence\u2122", role: "Visibility" },
-          { name: "Growth\u2122", role: "Scale" },
-        ] as item, i}
+      <div
+        class="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 reveal"
+      >
+        {#each [{ name: "Authority\u2122", role: "Foundation" }, { name: "Presence\u2122", role: "Credibility" }, { name: "Influence\u2122", role: "Visibility" }, { name: "Growth\u2122", role: "Scale" }] as item, i}
           <div class="flex flex-col md:flex-row items-center gap-6">
             <div class="text-center">
-              <span class="text-xl md:text-2xl font-serif text-white">{item.name}</span>
-              <span class="block text-sm font-mono text-[#a08300] uppercase tracking-widest mt-1">{item.role}</span>
+              <span class="text-xl md:text-2xl font-serif text-white"
+                >{item.name}</span
+              >
+              <span
+                class="block text-sm font-mono text-[#a08300] uppercase tracking-widest mt-1"
+                >{item.role}</span
+              >
             </div>
             {#if i < 3}
-              <span class="text-white/20 text-2xl hidden md:inline">&rarr;</span>
+              <span class="text-white/20 text-2xl hidden md:inline">&rarr;</span
+              >
             {/if}
           </div>
         {/each}
@@ -228,7 +224,8 @@
   <!-- The Engagements -->
   <section class="w-full py-24 md:py-32 px-6 border-t border-white/5">
     <div class="max-w-7xl mx-auto">
-      <span class="text-xs font-mono text-white/50 uppercase tracking-widest mb-16 block"
+      <span
+        class="text-xs font-mono text-white/50 uppercase tracking-widest mb-16 block"
         >The Engagements</span
       >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -244,22 +241,31 @@
             <div class="relative z-10 flex-1">
               <div class="flex items-start justify-between gap-4">
                 <div>
-                  <h2 class="text-4xl md:text-5xl font-serif tracking-tight text-white group-hover:text-[#a08300] transition-colors duration-500">
+                  <h2
+                    class="text-4xl md:text-5xl font-serif tracking-tight text-white group-hover:text-[#a08300] transition-colors duration-500"
+                  >
                     {service.name}
                   </h2>
-                  <span class="text-sm font-mono text-[#a08300] uppercase tracking-widest mt-2 block"
+                  <span
+                    class="text-sm font-mono text-[#a08300] uppercase tracking-widest mt-2 block"
                     >{service.label}</span
                   >
                 </div>
                 <div class="text-right shrink-0">
-                  <span class="text-3xl md:text-4xl font-serif text-white block leading-none">{service.price}</span>
-                  <span class="text-xs font-mono text-white/40 uppercase tracking-widest mt-1 block"
+                  <span
+                    class="text-3xl md:text-4xl font-serif text-white block leading-none"
+                    >{service.price}</span
+                  >
+                  <span
+                    class="text-xs font-mono text-white/40 uppercase tracking-widest mt-1 block"
                     >{service.timeframe}</span
                   >
                 </div>
               </div>
 
-              <p class="text-base md:text-lg text-white/50 font-sans font-light leading-relaxed mt-8 max-w-lg">
+              <p
+                class="text-base md:text-lg text-white/50 font-sans font-light leading-relaxed mt-8 max-w-lg"
+              >
                 {service.description}
               </p>
             </div>
@@ -297,17 +303,20 @@
       <p
         class="text-2xl md:text-3xl font-serif text-white/70 leading-relaxed reveal"
       >
-        Every engagement begins with a conversation. There are no fixed packages
-        &mdash; we scope each project to the problem that needs solving and the
-        outcome that matters to you.
+        Every engagement begins with a conversation. There are no fixed
+        packages, we scope each project to the problem that needs solving and
+        the outcome that matters to you.
       </p>
       <div class="mt-16 space-y-6 reveal">
         {#each steps as step, i}
           <div class="flex items-start gap-6">
-            <span class="text-[#a08300] font-mono text-xs tracking-widest mt-1 shrink-0 w-8"
+            <span
+              class="text-[#a08300] font-mono text-xs tracking-widest mt-1 shrink-0 w-8"
               >{String(i + 1).padStart(2, "0")}</span
             >
-            <p class="text-lg md:text-xl text-white/60 font-sans font-light leading-relaxed">
+            <p
+              class="text-lg md:text-xl text-white/60 font-sans font-light leading-relaxed"
+            >
               {step}
             </p>
           </div>
@@ -333,16 +342,18 @@
         class="text-3xl md:text-5xl font-serif leading-[1.1] tracking-tighter reveal"
       >
         The question isn't whether you can afford to work with us.
-        <span class="italic text-white/40">The question is what it costs not to.</span>
+        <span class="italic text-white/40"
+          >The question is what it costs not to.</span
+        >
       </h2>
       <p
         class="text-lg md:text-xl text-white/50 font-sans font-light leading-relaxed mt-8 reveal"
       >
-        A typical client engagement journey &mdash; Authority&trade; + Presence&trade; + six
-        months of Influence&trade; &mdash; represents an investment of approximately
-        $37,000. A single enterprise client won as a result of better
-        positioning, a stronger website, and consistent visibility will often be
-        worth multiples of that in year one alone.
+        A typical client engagement journey - Authority&trade; + Presence&trade;
+        + six months of Influence&trade; - represents an investment of
+        approximately $37,000. A single enterprise client won as a result of
+        better positioning, a stronger website, and consistent visibility will
+        often be worth multiples of that in year one alone.
       </p>
     </div>
   </section>
@@ -366,8 +377,11 @@
       ></div>
     </div>
     <div class="max-w-5xl mx-auto text-center relative z-10">
-      <p class="text-2xl md:text-3xl font-serif text-white/80 leading-relaxed max-w-3xl reveal">
-        If you're ready to become the company your market chooses, let's start with a conversation.
+      <p
+        class="text-2xl md:text-3xl font-serif text-white/80 leading-relaxed max-w-3xl reveal"
+      >
+        If you're ready to become the company your market chooses, let's start
+        with a conversation.
       </p>
       <a
         href="mailto:hello@madeinhaiphong.com"

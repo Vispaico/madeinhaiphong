@@ -263,19 +263,17 @@
         class="text-xs font-mono text-white/50 uppercase tracking-widest mb-12 block"
         >How Clients Work With Us</span
       >
-      <p
-        class="text-2xl md:text-3xl font-serif text-white/70 leading-relaxed"
-      >
-        Most engagements begin with Authority&trade; &mdash; building the strategic
+      <p class="text-2xl md:text-3xl font-serif text-white/70 leading-relaxed">
+        Most engagements begin with Authority&trade;, building the strategic
         foundation that everything else rests on.
       </p>
       <p
         class="text-2xl md:text-3xl font-serif text-white/90 leading-relaxed mt-8"
       >
         From there, clients move to Presence&trade; to rebuild their digital
-        presence around the new positioning. Influence&trade; compounds visibility
-        over time. Growth&trade; is for those who want a long-term strategic
-        partner for the full picture.
+        presence around the new positioning. Influence&trade; compounds
+        visibility over time. Growth&trade; is for those who want a long-term
+        strategic partner for the full picture.
       </p>
     </div>
   </section>

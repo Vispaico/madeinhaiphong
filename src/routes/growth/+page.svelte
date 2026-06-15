@@ -83,7 +83,13 @@
         "-=0.6",
       );
 
-    const sections = [problemRef, outcomeRef, ctaRef, rightForMeRef, pricingRef];
+    const sections = [
+      problemRef,
+      outcomeRef,
+      ctaRef,
+      rightForMeRef,
+      pricingRef,
+    ];
     sections.forEach((el) => {
       if (!el) return;
       gsap.fromTo(
@@ -207,16 +213,18 @@
         Growth&trade; is for you if...
       </h2>
       <div class="mt-16 space-y-8 reveal">
-        {#each [
-          "You're past the early stage and need strategic leadership, not just execution",
-          "Your marketing is fragmented and you want it unified under a coherent strategy",
-          "You want a long-term partner, not a vendor",
-        ] as item, i}
+        {#each ["You're past the early stage and need strategic leadership, not just execution", "Your marketing is fragmented and you want it unified under a coherent strategy", "You want a long-term partner, not a vendor"] as item, i}
           <div class="flex items-start gap-5">
-            <span class="w-6 h-6 rounded-full border border-[#a08300]/40 flex items-center justify-center shrink-0 mt-0.5">
+            <span
+              class="w-6 h-6 rounded-full border border-[#a08300]/40 flex items-center justify-center shrink-0 mt-0.5"
+            >
               <span class="w-2 h-2 bg-[#a08300] rounded-full"></span>
             </span>
-            <p class="text-lg md:text-xl text-white/80 font-sans font-light leading-relaxed">{item}</p>
+            <p
+              class="text-lg md:text-xl text-white/80 font-sans font-light leading-relaxed"
+            >
+              {item}
+            </p>
           </div>
         {/each}
       </div>
@@ -307,12 +315,14 @@
         six-month commitment. Engagements begin at $7,500/month and scale with
         scope and depth of involvement.
       </p>
-      <div class="mt-12 p-8 rounded-2xl border border-white/6 bg-[#0A0A0A] reveal">
+      <div
+        class="mt-12 p-8 rounded-2xl border border-white/6 bg-[#0A0A0A] reveal"
+      >
         <p class="text-base text-white/60 font-sans font-light leading-relaxed">
           The entry point covers quarterly strategic planning, monthly advisory,
           and oversight of your marketing activity. Clients requiring fractional
           marketing leadership, executive involvement, or full programme
-          management are scoped at $10,000\u2013$15,000+/month.
+          management are scoped at $10,000/month to $15,000+/month.
         </p>
       </div>
       <div class="mt-10 reveal">

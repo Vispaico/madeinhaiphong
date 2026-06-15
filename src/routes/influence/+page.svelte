@@ -83,7 +83,13 @@
         "-=0.6",
       );
 
-    const sections = [problemRef, outcomeRef, ctaRef, rightForMeRef, pricingRef];
+    const sections = [
+      problemRef,
+      outcomeRef,
+      ctaRef,
+      rightForMeRef,
+      pricingRef,
+    ];
     sections.forEach((el) => {
       if (!el) return;
       gsap.fromTo(
@@ -207,16 +213,18 @@
         Influence&trade; is for you if...
       </h2>
       <div class="mt-16 space-y-8 reveal">
-        {#each [
-          "You have expertise your market should know about but doesn't",
-          "You want to become the name prospects think of first in your category",
-          "You're ready to invest in visibility that compounds over time",
-        ] as item, i}
+        {#each ["You have expertise your market should know about but doesn't", "You want to become the name prospects think of first in your category", "You're ready to invest in visibility that compounds over time"] as item, i}
           <div class="flex items-start gap-5">
-            <span class="w-6 h-6 rounded-full border border-[#a08300]/40 flex items-center justify-center shrink-0 mt-0.5">
+            <span
+              class="w-6 h-6 rounded-full border border-[#a08300]/40 flex items-center justify-center shrink-0 mt-0.5"
+            >
               <span class="w-2 h-2 bg-[#a08300] rounded-full"></span>
             </span>
-            <p class="text-lg md:text-xl text-white/80 font-sans font-light leading-relaxed">{item}</p>
+            <p
+              class="text-lg md:text-xl text-white/80 font-sans font-light leading-relaxed"
+            >
+              {item}
+            </p>
           </div>
         {/each}
       </div>
@@ -308,12 +316,14 @@
         commitment. Most clients engage at $3,000/month. Higher-volume or more
         comprehensive programmes are scoped individually.
       </p>
-      <div class="mt-12 p-8 rounded-2xl border border-white/6 bg-[#0A0A0A] reveal">
+      <div
+        class="mt-12 p-8 rounded-2xl border border-white/6 bg-[#0A0A0A] reveal"
+      >
         <p class="text-base text-white/60 font-sans font-light leading-relaxed">
           The $3,000/month engagement includes a defined monthly content
           programme and strategy oversight. Clients requiring higher output,
           multiple founders, or additional channels are typically scoped at
-          $5,000\u2013$8,000/month.
+          $5,000/month to $8,000/month.
         </p>
       </div>
       <div class="mt-10 reveal">

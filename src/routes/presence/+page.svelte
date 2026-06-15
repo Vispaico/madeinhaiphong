@@ -83,7 +83,13 @@
         "-=0.6",
       );
 
-    const sections = [problemRef, outcomeRef, ctaRef, rightForMeRef, pricingRef];
+    const sections = [
+      problemRef,
+      outcomeRef,
+      ctaRef,
+      rightForMeRef,
+      pricingRef,
+    ];
     sections.forEach((el) => {
       if (!el) return;
       gsap.fromTo(
@@ -206,16 +212,18 @@
         Presence&trade; is for you if...
       </h2>
       <div class="mt-16 space-y-8 reveal">
-        {#each [
-          "Your current website doesn't reflect the quality of your work",
-          "You're losing deals to competitors who look more credible online",
-          "You're ready to build the kind of digital presence that closes deals before the first call",
-        ] as item, i}
+        {#each ["Your current website doesn't reflect the quality of your work", "You're losing deals to competitors who look more credible online", "You're ready to build the kind of digital presence that closes deals before the first call"] as item, i}
           <div class="flex items-start gap-5">
-            <span class="w-6 h-6 rounded-full border border-[#a08300]/40 flex items-center justify-center shrink-0 mt-0.5">
+            <span
+              class="w-6 h-6 rounded-full border border-[#a08300]/40 flex items-center justify-center shrink-0 mt-0.5"
+            >
               <span class="w-2 h-2 bg-[#a08300] rounded-full"></span>
             </span>
-            <p class="text-lg md:text-xl text-white/80 font-sans font-light leading-relaxed">{item}</p>
+            <p
+              class="text-lg md:text-xl text-white/80 font-sans font-light leading-relaxed"
+            >
+              {item}
+            </p>
           </div>
         {/each}
       </div>
@@ -302,15 +310,17 @@
       <p
         class="text-lg md:text-xl text-white/50 font-sans font-light leading-relaxed mt-8 max-w-3xl reveal"
       >
-        Presence&trade; engagements range from $12,500 for a focused professional
-        services site to $50,000+ for complex multi-brand or enterprise
-        requirements. Scope is built around your specific situation.
+        Presence&trade; engagements range from $12,500 for a focused
+        professional services site to $50,000+ for complex multi-brand or
+        enterprise requirements. Scope is built around your specific situation.
       </p>
-      <div class="mt-12 p-8 rounded-2xl border border-white/6 bg-[#0A0A0A] reveal">
+      <div
+        class="mt-12 p-8 rounded-2xl border border-white/6 bg-[#0A0A0A] reveal"
+      >
         <p class="text-base text-white/60 font-sans font-light leading-relaxed">
           Professional services firms and consultancies typically engage at
-          $12,500\u2013$20,000. Larger organisations with multiple brands,
-          complex systems, or enterprise requirements are scoped individually.
+          $12,500 to $20,000. Larger organisations with multiple brands, complex
+          systems, or enterprise requirements are scoped individually.
         </p>
       </div>
       <div class="mt-10 reveal">
