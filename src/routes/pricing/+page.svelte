@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
   import Seo from "$lib/components/Seo.svelte";
@@ -11,6 +11,9 @@
   let howRef = $state();
   let returnRef = $state();
   let ctaRef = $state();
+
+  let triggers = [];
+  let cardListeners = [];
 
   const services = [
     {
@@ -85,7 +88,7 @@
     const sections = [introRef, journeyRef, howRef, returnRef, ctaRef];
     sections.forEach((el) => {
       if (!el) return;
-      gsap.fromTo(
+      const st = gsap.fromTo(
         el.querySelectorAll(".reveal"),
         { y: 40, autoAlpha: 0 },
         {
@@ -97,11 +100,12 @@
           scrollTrigger: { trigger: el, start: "top 80%" },
         },
       );
+      if (st && st.scrollTrigger) triggers.push(st.scrollTrigger);
     });
 
     cardsRef.forEach((card, i) => {
       if (!card) return;
-      gsap.fromTo(
+      const st = gsap.fromTo(
         card,
         { y: 60, autoAlpha: 0 },
         {
@@ -113,22 +117,38 @@
           scrollTrigger: { trigger: card, start: "top 85%" },
         },
       );
+      if (st && st.scrollTrigger) triggers.push(st.scrollTrigger);
 
-      card.addEventListener("mouseenter", () => {
+      const enterHandler = () => {
         gsap.to(card, {
           borderColor: "rgba(255,255,255,0.3)",
           duration: 0.4,
           ease: "power2.out",
         });
-      });
-      card.addEventListener("mouseleave", () => {
+      };
+      const leaveHandler = () => {
         gsap.to(card, {
           borderColor: "rgba(255,255,255,0.08)",
           duration: 0.4,
           ease: "power2.out",
         });
-      });
+      };
+      card.addEventListener("mouseenter", enterHandler);
+      card.addEventListener("mouseleave", leaveHandler);
+      cardListeners.push({ el: card, enter: enterHandler, leave: leaveHandler });
     });
+  });
+
+  onDestroy(() => {
+    triggers.forEach((st) => {
+      if (st) st.kill();
+    });
+    triggers = [];
+    cardListeners.forEach(({ el, enter, leave }) => {
+      el.removeEventListener("mouseenter", enter);
+      el.removeEventListener("mouseleave", leave);
+    });
+    cardListeners = [];
   });
 </script>
 

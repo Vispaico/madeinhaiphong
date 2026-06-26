@@ -1,18 +1,21 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
 
   let rowRef = $state();
+  let tween = null;
 
   onMount(() => {
-    // Continuous smooth linear scroll for modern aesthetic
-    // To make it seamless, we translate exactly half of the duplicated content width
-    gsap.to(rowRef, {
-      xPercent: -50,
+    tween = gsap.to(rowRef, {
+      xPercent: -49.9,
       repeat: -1,
       duration: 25,
       ease: "none",
     });
+  });
+
+  onDestroy(() => {
+    if (tween) tween.kill();
   });
 
   const brands = [

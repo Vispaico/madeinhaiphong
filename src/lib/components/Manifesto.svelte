@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -8,24 +8,37 @@
   const words = paragraph.split(" ");
 
   let manifestoRef = $state();
+  let st = null;
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const spans = manifestoRef.querySelectorAll(".word");
 
-    // Reveal words one by one as you scroll
-    gsap.to(spans, {
-      color: "rgba(255,255,255,1)", // Transitioning to pure white
-      stagger: 0.1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: manifestoRef,
-        start: "top 80%",
-        end: "bottom 50%",
-        scrub: 1,
+    // Use a single ScrollTrigger with a CSS-class-based approach instead
+    // of animating 30+ individual color properties per frame via scrub
+    st = ScrollTrigger.create({
+      trigger: manifestoRef,
+      start: "top 80%",
+      end: "bottom 50%",
+      onUpdate: (self) => {
+        const progress = self.progress;
+        // Only update every ~2% of progress to reduce repaints
+        const index = Math.floor(progress * spans.length);
+        if (index !== st._lastIndex) {
+          st._lastIndex = index;
+          for (let i = 0; i < spans.length; i++) {
+            spans[i].style.color =
+              i <= index ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.1)";
+          }
+        }
       },
     });
+    st._lastIndex = -1;
+  });
+
+  onDestroy(() => {
+    if (st) st.kill();
   });
 </script>
 
@@ -43,7 +56,6 @@
     class="text-3xl md:text-5xl lg:text-6xl font-serif text-center max-w-5xl w-full flex flex-wrap justify-center gap-x-3 gap-y-2 md:gap-y-4"
   >
     {#each words as word}
-      <!-- Words start muted and transition to white explicitly via GSAP for better contrast control -->
       <span
         class="word text-white/10 transition-colors duration-300 pointer-events-none"
         >{word}</span

@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
   import Seo from "$lib/components/Seo.svelte";
@@ -12,6 +12,7 @@
   let rightForMeRef = $state();
   let pricingRef = $state();
   let whatWeDoItems = $state([]);
+  let triggers = [];
 
   const offerings = [
     {
@@ -92,7 +93,7 @@
     ];
     sections.forEach((el) => {
       if (!el) return;
-      gsap.fromTo(
+      const st = gsap.fromTo(
         el.querySelectorAll(".reveal"),
         { y: 40, autoAlpha: 0 },
         {
@@ -104,10 +105,12 @@
           scrollTrigger: { trigger: el, start: "top 80%" },
         },
       );
+      if (st && st.scrollTrigger) triggers.push(st.scrollTrigger);
     });
 
-    whatWeDoItems.forEach((item, i) => {
-      gsap.fromTo(
+    whatWeDoItems.forEach((item) => {
+      if (!item) return;
+      const st = gsap.fromTo(
         item,
         { y: 30, autoAlpha: 0 },
         {
@@ -119,7 +122,15 @@
           scrollTrigger: { trigger: item, start: "top 90%" },
         },
       );
+      if (st && st.scrollTrigger) triggers.push(st.scrollTrigger);
     });
+  });
+
+  onDestroy(() => {
+    triggers.forEach((st) => {
+      if (st) st.kill();
+    });
+    triggers = [];
   });
 </script>
 

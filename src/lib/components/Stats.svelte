@@ -1,9 +1,10 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
 
   let statsRef = $state();
+  let triggers = [];
 
   const stats = [
     {
@@ -41,7 +42,7 @@
       let target = stats[i].limit;
       let obj = { val: 0 };
 
-      gsap.to(obj, {
+      const tween = gsap.to(obj, {
         val: target,
         duration: 2.5,
         ease: "power2.out",
@@ -53,7 +54,15 @@
           counter.innerText = Math.ceil(obj.val);
         },
       });
+      triggers.push(tween.scrollTrigger);
     });
+  });
+
+  onDestroy(() => {
+    triggers.forEach((st) => {
+      if (st) st.kill();
+    });
+    triggers = [];
   });
 </script>
 

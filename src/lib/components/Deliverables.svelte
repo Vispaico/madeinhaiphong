@@ -1,16 +1,17 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
 
   let { items = [] } = $props();
   let sectionRef = $state();
   let cardRefs = $state([]);
+  let triggers = [];
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.fromTo(
+    const st1 = gsap.fromTo(
       sectionRef.querySelectorAll(".reveal"),
       { y: 40, autoAlpha: 0 },
       {
@@ -22,22 +23,30 @@
         scrollTrigger: { trigger: sectionRef, start: "top 80%" },
       },
     );
+    if (st1 && st1.scrollTrigger) triggers.push(st1.scrollTrigger);
 
-    cardRefs.forEach((card, i) => {
+    cardRefs.forEach((card) => {
       if (!card) return;
-      gsap.fromTo(
+      const st = gsap.fromTo(
         card,
         { y: 30, autoAlpha: 0 },
         {
           y: 0,
           autoAlpha: 1,
           duration: 0.8,
-          delay: i * 0.05,
           ease: "power3.out",
           scrollTrigger: { trigger: card, start: "top 90%" },
         },
       );
+      if (st && st.scrollTrigger) triggers.push(st.scrollTrigger);
     });
+  });
+
+  onDestroy(() => {
+    triggers.forEach((st) => {
+      if (st) st.kill();
+    });
+    triggers = [];
   });
 </script>
 

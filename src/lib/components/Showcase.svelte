@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -38,12 +38,19 @@
   let introRef = $state();
   let gridRef = $state();
   let ctaRef = $state();
+  let triggers = [];
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    const createTrigger = (el, ref) => {
+      if (el) {
+        triggers.push(ref);
+      }
+    };
+
     if (headlineRef) {
-      gsap.fromTo(
+      const st = gsap.fromTo(
         headlineRef,
         { y: 40, autoAlpha: 0 },
         {
@@ -54,10 +61,11 @@
           scrollTrigger: { trigger: headlineRef, start: "top 85%" },
         },
       );
+      triggers.push(st.scrollTrigger);
     }
 
     if (introRef) {
-      gsap.fromTo(
+      const st = gsap.fromTo(
         introRef,
         { y: 40, autoAlpha: 0 },
         {
@@ -68,11 +76,12 @@
           scrollTrigger: { trigger: introRef, start: "top 85%" },
         },
       );
+      triggers.push(st.scrollTrigger);
     }
 
     const cards = gridRef?.querySelectorAll(".service-card");
     if (cards) {
-      gsap.fromTo(
+      const st = gsap.fromTo(
         cards,
         { y: 60, autoAlpha: 0 },
         {
@@ -87,10 +96,11 @@
           },
         },
       );
+      triggers.push(st.scrollTrigger);
     }
 
     if (ctaRef) {
-      gsap.fromTo(
+      const st = gsap.fromTo(
         ctaRef,
         { y: 40, autoAlpha: 0 },
         {
@@ -101,7 +111,15 @@
           scrollTrigger: { trigger: ctaRef, start: "top 85%" },
         },
       );
+      triggers.push(st.scrollTrigger);
     }
+  });
+
+  onDestroy(() => {
+    triggers.forEach((st) => {
+      if (st) st.kill();
+    });
+    triggers = [];
   });
 </script>
 

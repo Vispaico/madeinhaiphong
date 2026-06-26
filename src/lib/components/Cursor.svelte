@@ -66,17 +66,18 @@
     // Initial setup and observer for dynamic elements
     attachEventListeners();
 
-    const observer = new MutationObserver((mutations) => {
-      let shouldUpdate = false;
-      for (let m of mutations) {
-        if (m.addedNodes.length > 0) shouldUpdate = true;
-      }
-      if (shouldUpdate) attachEventListeners();
+    // Debounced MutationObserver -- only runs after 200ms of inactivity
+    // to avoid re-scanning the DOM on every single mutation
+    let debounceTimer;
+    const observer = new MutationObserver(() => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(attachEventListeners, 200);
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      clearTimeout(debounceTimer);
       window.removeEventListener("mousemove", moveCursor);
       observer.disconnect();
       document.querySelectorAll("a, button").forEach((el) => {
