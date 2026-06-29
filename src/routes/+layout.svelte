@@ -15,7 +15,7 @@
         gsap.registerPlugin(ScrollTrigger);
 
         const lenis = new Lenis({
-            autoRaf: true,
+            autoRaf: false,
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: "vertical",
@@ -25,12 +25,15 @@
             touchMultiplier: 2,
         });
 
-// Only update ScrollTrigger on actual scroll events rather than every frame.
-// This is called by Lenis only when scroll position actually changes.
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
         lenis.on("scroll", ScrollTrigger.update);
 
         return () => {
             lenis.destroy();
+            gsap.ticker.remove(lenis.raf);
         };
     });
 </script>

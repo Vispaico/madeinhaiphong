@@ -15,30 +15,24 @@
 
     const spans = manifestoRef.querySelectorAll(".word");
 
-    // Use a single ScrollTrigger with a CSS-class-based approach instead
-    // of animating 30+ individual color properties per frame via scrub
-    st = ScrollTrigger.create({
-      trigger: manifestoRef,
-      start: "top 80%",
-      end: "bottom 50%",
-      onUpdate: (self) => {
-        const progress = self.progress;
-        // Only update every ~2% of progress to reduce repaints
-        const index = Math.floor(progress * spans.length);
-        if (index !== st._lastIndex) {
-          st._lastIndex = index;
-          for (let i = 0; i < spans.length; i++) {
-            spans[i].style.color =
-              i <= index ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.1)";
-          }
-        }
+    st = gsap.to(spans, {
+      color: "rgba(255,255,255,1)",
+      stagger: 0.1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: manifestoRef,
+        start: "top 80%",
+        end: "bottom 50%",
+        scrub: 0.5,
       },
     });
-    st._lastIndex = -1;
   });
 
   onDestroy(() => {
-    if (st) st.kill();
+    if (st) {
+      if (st.scrollTrigger) st.scrollTrigger.kill();
+      st.kill();
+    }
   });
 </script>
 
