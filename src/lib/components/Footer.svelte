@@ -53,11 +53,11 @@
         Socials
       </h4>
       <a
-        href="https://twitter.com"
+        href="https://www.youtube.com/@made_in_haiphong"
         target="_blank"
         rel="noopener noreferrer"
         class="text-white/60 hover:text-white font-sans text-sm transition-colors"
-        >Twitter (X)</a
+        >YouTube</a
       >
       <a
         href="https://www.instagram.com/p/B9115hZnuxv/"

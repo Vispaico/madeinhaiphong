@@ -4,6 +4,7 @@
   import ScrollToPlugin from "gsap/ScrollToPlugin";
   import Logo from "./logo.svelte";
   import Menu from "@lucide/svelte/icons/menu";
+  import { openContactModal } from "$lib/stores/contactModal.svelte.js";
 
   let headerRef = $state();
   let navItemsRef = $state([]);
@@ -178,11 +179,10 @@
     bind:this={iconsRef}
     class="flex space-x-1 sm:space-x-3 items-center z-50"
   >
-    <a
-      href="#contact"
-      onclick={(e) => scrollTo(e, "#contact")}
-      class="hidden md:flex items-center justify-center text-sm font-medium bg-white text-black hover:bg-white/80 transition-colors px-6 py-2 rounded-full"
-      >Let's build it &rarr;</a
+    <button
+      onclick={(e) => { e.preventDefault(); openContactModal(); }}
+      class="hidden md:flex items-center justify-center text-sm font-medium bg-white text-black hover:bg-white/80 transition-colors px-6 py-2 rounded-full cursor-pointer"
+      >Let's build it &rarr;</button
     >
     <button
       onclick={toggleMenu}
@@ -242,12 +242,10 @@
       >
     </li>
     <li class="overflow-hidden mt-6 pt-8 border-t border-white/10">
-      <a
-        bind:this={mobileLinksRef[3]}
-        href="#contact"
-        onclick={(e) => scrollTo(e, "#contact")}
-        class="inline-block text-xl font-sans text-white hover:text-white/80 transition-colors will-change-transform"
-        >Let's build it &rarr;</a
+      <button
+        onclick={(e) => { if (isMenuOpen) toggleMenu(); openContactModal(); }}
+        class="inline-block text-xl font-sans text-white hover:text-white/80 transition-colors will-change-transform cursor-pointer bg-transparent border-none p-0"
+        >Let's build it &rarr;</button
       >
     </li>
   </ul>

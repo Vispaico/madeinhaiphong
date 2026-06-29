@@ -8,6 +8,8 @@
     import favicon from "$lib/assets/favicon.svg";
     import Header from "$lib/components/header.svelte";
     import Cursor from "$lib/components/Cursor.svelte";
+    import ContactModal from "$lib/components/ContactModal.svelte";
+    import { isContactModalOpen, openContactModal, closeContactModal } from "$lib/stores/contactModal.svelte.js";
 
     let { children } = $props();
 
@@ -31,9 +33,35 @@
 
         lenis.on("scroll", ScrollTrigger.update);
 
+        // Rewrite mailto hrefs to prevent "mailto:..." appearing on status bar
+        const rewriteMailtoLinks = () => {
+            document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+                if (!link.dataset.contactModalBound) {
+                    link.dataset.contactModalBound = "true";
+                    link.dataset.contactHref = link.getAttribute("href");
+                    link.setAttribute("href", "#");
+                }
+            });
+        };
+        rewriteMailtoLinks();
+        const observer = new MutationObserver(rewriteMailtoLinks);
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Intercept clicks on mailto-originated links using the data attribute
+        const handleClick = (e) => {
+            const link = e.target.closest("a");
+            if (link && link.dataset.contactModalBound === "true") {
+                e.preventDefault();
+                openContactModal();
+            }
+        };
+        document.addEventListener("click", handleClick);
+
         return () => {
             lenis.destroy();
             gsap.ticker.remove(lenis.raf);
+            document.removeEventListener("click", handleClick);
+            observer.disconnect();
         };
     });
 </script>
@@ -54,3 +82,5 @@
 <main class="app-wrapper">
     {@render children()}
 </main>
+
+<ContactModal isOpen={$isContactModalOpen} onclose={closeContactModal} />

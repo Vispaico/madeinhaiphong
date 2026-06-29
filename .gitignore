@@ -25,3 +25,7 @@ vite.config.ts.timestamp-*
 # IDE & AI Traces
 .vscode/
 .claude/
+
+# Env
+.env.example
+
