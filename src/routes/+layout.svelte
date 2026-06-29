@@ -14,7 +14,6 @@
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Lenis'i başlat (Smooth Scrolling)
         const lenis = new Lenis({
             autoRaf: true,
             duration: 1.2,
@@ -26,18 +25,12 @@
             touchMultiplier: 2,
         });
 
-        // GSAP ScrollTrigger'ın Scroll güncellemelerini Lenis'e bağla
+// Only update ScrollTrigger on actual scroll events rather than every frame.
+// This is called by Lenis only when scroll position actually changes.
         lenis.on("scroll", ScrollTrigger.update);
-
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
-
-        gsap.ticker.lagSmoothing(0);
 
         return () => {
             lenis.destroy();
-            gsap.ticker.remove(lenis.raf);
         };
     });
 </script>
