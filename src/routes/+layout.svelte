@@ -10,18 +10,28 @@
     import Cursor from "$lib/components/Cursor.svelte";
     import ContactModal from "$lib/components/ContactModal.svelte";
     import { isContactModalOpen, openContactModal, closeContactModal } from "$lib/stores/contactModal.svelte.js";
-    import { afterNavigate } from "$app/navigation";
+    import { afterNavigate, beforeNavigate } from "$app/navigation";
 
     let { children } = $props();
 
     let lenis;
 
+    beforeNavigate(() => {
+        // Stop Lenis smooth scroll during navigation to prevent scroll fighting
+        if (lenis) lenis.stop();
+    });
+
     afterNavigate(() => {
-        // Scroll to top on every page navigation via Lenis
-        if (lenis) {
-            lenis.scrollTo(0, { immediate: true });
-            ScrollTrigger.refresh();
-        }
+        // Force native scroll to top first (handles the initial flash)
+        window.scrollTo(0, 0);
+        // Then tell Lenis to reset, with a tiny delay so the DOM is settled
+        requestAnimationFrame(() => {
+            if (lenis) {
+                lenis.scrollTo(0, { immediate: true });
+                lenis.start();
+                ScrollTrigger.refresh();
+            }
+        });
     });
 
     onMount(() => {
