@@ -24,7 +24,15 @@ function createTransport() {
 export async function POST({ request }) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, hp } = body;
+
+    // Honeypot trap: if filled, silently reject as spam
+    if (hp) {
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      });
+    }
 
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: "Name, email, and message are required." }), {

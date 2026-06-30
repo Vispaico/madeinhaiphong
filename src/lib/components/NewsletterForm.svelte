@@ -4,6 +4,7 @@
   let { onBack } = $props();
 
   let email = $state("");
+  let hp = $state(""); // honeypot
   let status = $state("idle");
 
   const handleSubmit = async (e) => {
@@ -14,7 +15,7 @@
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, hp }),
       });
 
       if (!res.ok) {
@@ -46,6 +47,11 @@
     </div>
   {:else}
     <form onsubmit={handleSubmit} class="flex flex-col gap-4">
+      <!-- honeypot: hidden from users, visible to bots -->
+      <div aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;pointer-events:none">
+        <label for="ns-hp">Leave this empty</label>
+        <input id="ns-hp" bind:value={hp} type="text" tabindex="-1" autocomplete="off" />
+      </div>
       <div>
         <label for="ns-email" class="text-[10px] font-mono text-white/40 uppercase tracking-wider block mb-1.5"
           >Email</label

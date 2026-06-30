@@ -4,6 +4,7 @@
   let name = $state("");
   let email = $state("");
   let message = $state("");
+  let hp = $state(""); // honeypot
   let status = $state("idle"); // idle | sending | success | error
   let errorMsg = $state("");
 
@@ -16,7 +17,7 @@
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, hp }),
       });
 
       if (!res.ok) {
@@ -87,6 +88,12 @@
           placeholder="How can we help?"
           class="w-full bg-white/5 border border-white/8 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition-colors focus:border-white/30 resize-none"
         ></textarea>
+      </div>
+
+      <!-- honeypot: hidden from users, visible to bots -->
+      <div aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;pointer-events:none">
+        <label for="cf-hp">Leave this empty</label>
+        <input id="cf-hp" bind:value={hp} type="text" tabindex="-1" autocomplete="off" />
       </div>
 
       {#if status === "error"}
