@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://madeinhaiphong.com/sitemap.xml
+Sitemap: https://www.made-in-haiphong.com/sitemap.xml
