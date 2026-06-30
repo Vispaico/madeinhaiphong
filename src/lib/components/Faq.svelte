@@ -60,10 +60,10 @@
       </p>
 
       <a
-        href="#contact"
+        href="/faq"
         class="inline-flex items-center gap-2 mt-8 text-sm font-mono text-white/80 uppercase hover:text-white transition-colors group"
       >
-        Still have questions?
+        View all FAQs
         <span
           class="w-8 h-px bg-white transform origin-left transition-transform duration-300 group-hover:scale-x-150"
         ></span>

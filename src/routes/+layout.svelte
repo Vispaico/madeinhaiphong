@@ -10,13 +10,24 @@
     import Cursor from "$lib/components/Cursor.svelte";
     import ContactModal from "$lib/components/ContactModal.svelte";
     import { isContactModalOpen, openContactModal, closeContactModal } from "$lib/stores/contactModal.svelte.js";
+    import { afterNavigate } from "$app/navigation";
 
     let { children } = $props();
+
+    let lenis;
+
+    afterNavigate(() => {
+        // Scroll to top on every page navigation via Lenis
+        if (lenis) {
+            lenis.scrollTo(0, { immediate: true });
+            ScrollTrigger.refresh();
+        }
+    });
 
     onMount(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        const lenis = new Lenis({
+        lenis = new Lenis({
             autoRaf: false,
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

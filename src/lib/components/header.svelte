@@ -154,22 +154,17 @@
       <li bind:this={navItemsRef[0]}>
         <a href="/" class="hover:text-white transition-colors">Home</a>
       </li>
-      <li bind:this={navItemsRef[1]}>
-        <a
-          href="#work"
-          onclick={(e) => scrollTo(e, "#work")}
-          class="hover:text-white transition-colors">Work</a
-        >
-      </li>
       <li bind:this={navItemsRef[2]}>
         <a href="/services" class="hover:text-white transition-colors"
           >Services</a
         >
       </li>
       <li bind:this={navItemsRef[3]}>
-        <a href="/pricing" class="hover:text-white transition-colors"
-          >Pricing</a
+        <a href="/pricing" class="hover:text-white transition-colors">Pricing</a
         >
+      </li>
+      <li bind:this={navItemsRef[1]}>
+        <a href="/faq" class="hover:text-white transition-colors">FAQ</a>
       </li>
     </ul>
   </div>
@@ -180,7 +175,10 @@
     class="flex space-x-1 sm:space-x-3 items-center z-50"
   >
     <button
-      onclick={(e) => { e.preventDefault(); openContactModal(); }}
+      onclick={(e) => {
+        e.preventDefault();
+        openContactModal();
+      }}
       class="hidden md:flex items-center justify-center text-sm font-medium bg-white text-black hover:bg-white/80 transition-colors px-6 py-2 rounded-full cursor-pointer"
       >Let's build it &rarr;</button
     >
@@ -243,7 +241,10 @@
     </li>
     <li class="overflow-hidden mt-6 pt-8 border-t border-white/10">
       <button
-        onclick={(e) => { if (isMenuOpen) toggleMenu(); openContactModal(); }}
+        onclick={(e) => {
+          if (isMenuOpen) toggleMenu();
+          openContactModal();
+        }}
         class="inline-block text-xl font-sans text-white hover:text-white/80 transition-colors will-change-transform cursor-pointer bg-transparent border-none p-0"
         >Let's build it &rarr;</button
       >

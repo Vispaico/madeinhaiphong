@@ -40,7 +40,7 @@
         >Selected Works</a
       >
       <a
-        href="#faq"
+        href="/faq"
         class="text-white/60 hover:text-white font-sans text-sm transition-colors"
         >FAQ</a
       >
@@ -67,18 +67,25 @@
         >Instagram</a
       >
       <a
-        href="https://www.linkedin.com/company/made-in-haiphong"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-white/60 hover:text-white font-sans text-sm transition-colors"
-        >LinkedIn</a
-      >
-      <a
         href="https://www.facebook.com/MadeInHaiphongCom/"
         target="_blank"
         rel="noopener noreferrer"
         class="text-white/60 hover:text-white font-sans text-sm transition-colors"
         >Facebook</a
+      >
+      <a
+        href="https://x.com/MadeInHaiphong"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white/60 hover:text-white font-sans text-sm transition-colors"
+        >X</a
+      >
+      <a
+        href="https://www.linkedin.com/company/made-in-haiphong"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white/60 hover:text-white font-sans text-sm transition-colors"
+        >LinkedIn</a
       >
     </div>
 
