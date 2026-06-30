@@ -139,11 +139,11 @@
     {/if}
 
     {#if view === "contact"}
-      <ContactForm onback={() => { view = "main"; }} />
+      <ContactForm onBack={() => { view = "main"; }} />
     {/if}
 
     {#if view === "newsletter"}
-      <NewsletterForm onback={() => { view = "main"; }} />
+      <NewsletterForm onBack={() => { view = "main"; }} />
     {/if}
   </div>
 </div>
