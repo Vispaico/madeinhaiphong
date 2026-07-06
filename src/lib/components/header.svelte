@@ -166,6 +166,11 @@
       <li bind:this={navItemsRef[1]}>
         <a href="/faq" class="hover:text-white transition-colors">FAQ</a>
       </li>
+      <li bind:this={navItemsRef[4]}>
+        <a href="/journal" class="hover:text-white transition-colors"
+          >The Journal</a
+        >
+      </li>
     </ul>
   </div>
 
@@ -237,6 +242,14 @@
         href="/pricing"
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
         >Pricing</a
+      >
+    </li>
+    <li class="overflow-hidden">
+      <a
+        bind:this={mobileLinksRef[4]}
+        href="/journal"
+        class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
+        >The Journal</a
       >
     </li>
     <li class="overflow-hidden mt-6 pt-8 border-t border-white/10">

@@ -38,6 +38,13 @@ const pages = [
   { path: '/faq/meta-ads/best-days-to-run-facebook-ads', changefreq: 'monthly', priority: '0.7' },
   { path: '/faq/meta-ads/cost-to-reach-100000-people-facebook', changefreq: 'monthly', priority: '0.7' },
   { path: '/faq/meta-ads/common-meta-ads-mistakes', changefreq: 'monthly', priority: '0.7' },
+  // Journal pages
+  { path: '/journal', changefreq: 'weekly', priority: '0.8' },
+  { path: '/journal/issue-001', changefreq: 'monthly', priority: '0.8' },
+  { path: '/journal/issue-002', changefreq: 'monthly', priority: '0.8' },
+  { path: '/journal/issue-003', changefreq: 'monthly', priority: '0.8' },
+  { path: '/journal/issue-004', changefreq: 'monthly', priority: '0.8' },
+  { path: '/journal/issue-005', changefreq: 'monthly', priority: '0.8' },
 ];
 
 export async function GET() {

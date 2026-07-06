@@ -35,6 +35,11 @@
         >Services</a
       >
       <a
+        href="/journal"
+        class="text-white/60 hover:text-white font-sans text-sm transition-colors"
+        >The Journal</a
+      >
+      <a
         href="#work"
         class="text-white/60 hover:text-white font-sans text-sm transition-colors"
         >Selected Works</a
