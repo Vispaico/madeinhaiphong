@@ -94,7 +94,7 @@
   <section class="w-full py-24 md:py-32 px-6 border-t border-white/5">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col gap-8">
-        {#each essays as essay, i}
+        {#each [...essays].reverse() as essay, i}
           <a
             href="/journal/{essay.slug}"
             bind:this={cardsRef[i]}
