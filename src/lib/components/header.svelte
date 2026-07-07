@@ -215,6 +215,7 @@
       <a
         bind:this={mobileLinksRef[0]}
         href="/"
+        onclick={(e) => toggleMenu()}
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
         >Home</a
       >
@@ -232,6 +233,7 @@
       <a
         bind:this={mobileLinksRef[2]}
         href="/services"
+        onclick={(e) => toggleMenu()}
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
         >Services</a
       >
@@ -240,6 +242,7 @@
       <a
         bind:this={mobileLinksRef[3]}
         href="/pricing"
+        onclick={(e) => toggleMenu()}
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
         >Pricing</a
       >
@@ -248,6 +251,7 @@
       <a
         bind:this={mobileLinksRef[4]}
         href="/journal"
+        onclick={(e) => toggleMenu()}
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
         >The Journal</a
       >
