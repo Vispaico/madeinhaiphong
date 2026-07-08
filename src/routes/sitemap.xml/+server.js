@@ -45,6 +45,7 @@ const pages = [
   { path: '/journal/issue-003', changefreq: 'monthly', priority: '0.8' },
   { path: '/journal/issue-004', changefreq: 'monthly', priority: '0.8' },
   { path: '/journal/issue-005', changefreq: 'monthly', priority: '0.8' },
+  { path: '/journal/issue-006', changefreq: 'monthly', priority: '0.8' },
 ];
 
 export async function GET() {

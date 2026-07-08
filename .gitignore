@@ -29,3 +29,6 @@ vite.config.ts.timestamp-*
 # Env
 .env.example
 
+website-content.md
+
+
