@@ -592,7 +592,7 @@ export const essays = [
     readTime: "10 min read",
     date: "July 2026",
     content: [
-      `<p class="text-xl md:text-2xl font-serif text-white/70 leading-relaxed italic">Concorde could not fly over land.</p>`,
+      `<p class="text-xl md:text-2xl font-serif text-white/70 leading-relaxed italic">Concorde could not fly over land.  That limitation, not its speed, is what made it unforgettable. Why the most powerful positioning decision a company can make is what it refuses to do.</p>`,
       `<hr class="border-white/10 my-12" />`,
       `<p>Not for lack of engineering. It could, mechanically, cross a continent as easily as an ocean. The restriction was regulatory: its sonic boom, a physical consequence of the very speed that made it remarkable, was loud enough to crack plaster and rattle windows for miles beneath its flight path, and country after country refused to permit it overhead. So Concorde was confined, for its entire operational life, to a small number of transatlantic routes where it could accelerate over open water, out of anyone's earshot.</p>`,
       `<p>It carried perhaps a hundred passengers, a fraction of a conventional jumbo jet. Its fuel consumption per seat was extravagant by any rational commercial measure. Tickets cost more than most travelers earned in a month. It could not serve a family holiday, could not reach most of the world's cities, could not compete on price with anything else in the sky. By almost every conventional metric an airline uses to evaluate an aircraft, Concorde was a poor commercial proposition, and its limited production run reflects exactly that.</p>`,
