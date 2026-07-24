@@ -95,6 +95,7 @@
         href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet"
     />
+    <script defer src="https://analytics.vispaico.com/script.js" data-website-id="ef6be3b1-5e7d-4938-844b-3a5d36ff5202"></script>
 </svelte:head>
 
 <Cursor />
