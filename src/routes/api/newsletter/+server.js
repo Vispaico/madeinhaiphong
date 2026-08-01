@@ -41,14 +41,25 @@ export async function POST({ request }) {
       });
     }
 
+    // Sanitize and validate email server-side
+    const sanitize = (str) => String(str).replace(/<[^>]*>/g, '');
+    const safeEmail = sanitize(subscriberEmail).replace(/[\r\n]/g, '').trim().slice(0, 320);
+
+    if (!/.+@.+\..+/.test(safeEmail)) {
+      return new Response(JSON.stringify({ error: "Invalid email address." }), {
+        status: 400,
+        headers: { "content-type": "application/json" },
+      });
+    }
+
     const transporter = createTransport();
 
     await transporter.sendMail({
       from: `"Made in Haiphong" <${SMTP_USER}>`,
       to: CONTACT_EMAIL,
       subject: "New newsletter subscriber — made-in-haiphong.com",
-      text: `New subscriber: ${subscriberEmail}`,
-      html: `<p><strong>New newsletter subscriber:</strong></p><p>${subscriberEmail}</p>`,
+      text: `New subscriber: ${safeEmail}`,
+      html: `<p><strong>New newsletter subscriber:</strong></p><p>${safeEmail}</p>`,
     });
 
     return new Response(JSON.stringify({ success: true }), {

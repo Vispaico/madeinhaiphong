@@ -41,15 +41,29 @@ export async function POST({ request }) {
       });
     }
 
+    // Sanitize user input to prevent HTML injection in emails
+    const sanitize = (str) => String(str).replace(/<[^>]*>/g, '');
+    const safeName = sanitize(name).slice(0, 100);
+    const safeEmail = String(email).replace(/[\r\n]/g, '').trim().slice(0, 320);
+    const safeMessage = sanitize(message).slice(0, 5000);
+
+    // Validate email format server-side
+    if (!/.+@.+\..+/.test(safeEmail)) {
+      return new Response(JSON.stringify({ error: "Invalid email address." }), {
+        status: 400,
+        headers: { "content-type": "application/json" },
+      });
+    }
+
     const transporter = createTransport();
 
     await transporter.sendMail({
-      from: `"${name}" <${SMTP_USER}>`,
-      replyTo: email,
+      from: `"${safeName}" <${SMTP_USER}>`,
+      replyTo: safeEmail,
       to: CONTACT_EMAIL,
-      subject: `New contact from ${name} — made-in-haiphong.com`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, "<br>")}</p>`,
+      subject: `New contact from ${safeName} — made-in-haiphong.com`,
+      text: `Name: ${safeName}\nEmail: ${safeEmail}\n\nMessage:\n${safeMessage}`,
+      html: `<p><strong>Name:</strong> ${safeName}</p><p><strong>Email:</strong> ${safeEmail}</p><p><strong>Message:</strong></p><p>${safeMessage.replace(/\n/g, "<br>")}</p>`,
     });
 
     return new Response(JSON.stringify({ success: true }), {
