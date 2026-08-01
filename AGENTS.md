@@ -33,3 +33,12 @@ No test, lint, or format scripts are configured.
 - Routes (all `.svelte` pages): home (`+page.svelte`) + info pages under `src/routes/{services,pricing,growth,influence,presence,authority,terms,privacy}/+page.svelte`.
 - `Seo.svelte` component injects `<svelte:head>` metadata on each page.
 - GSAP `ScrollTrigger` is registered and Lenis is wired to GSAP ticker in the root layout.
+
+## Must Observe Rules
+- Do not preserve backward compatibility.
+- Choose the simplest implementation that fully meets the current requirements.
+- Prefer established, well-maintained libraries over custom implementations.
+- Avoid premature abstraction: prefer simple concrete solutions until real patterns emerge.
+- Prefer composition over centralization: use small focused modules with explicit interfaces instead of centralized systems.
+- Keep responsibilities clear: keep modules focused and avoid mixing transport, orchestration, domain/workflow state, persistence, infrastructure.
+- Never skip verification: do not bypass required checks, tests, or quality gates.
