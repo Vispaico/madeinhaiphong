@@ -150,11 +150,8 @@
   </a>
 
   <!-- Desktop Nav -->
-  <div id="nav" class="hidden md:block flex-1 flex justify-center px-4">
+  <div id="nav" class="hidden md:block flex-1 justify-center px-4">
     <ul class="flex space-x-8 text-sm font-medium text-white/70">
-      <li bind:this={navItemsRef[0]}>
-        <a href="/" class="hover:text-white transition-colors">Home</a>
-      </li>
       <li bind:this={navItemsRef[2]}>
         <a href="/services" class="hover:text-white transition-colors"
           >Services</a
@@ -226,15 +223,6 @@
     <li class="overflow-hidden">
       <a
         bind:this={mobileLinksRef[1]}
-        href="#work"
-        onclick={(e) => scrollTo(e, "#work")}
-        class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
-        >Work</a
-      >
-    </li>
-    <li class="overflow-hidden">
-      <a
-        bind:this={mobileLinksRef[2]}
         href="/services"
         onclick={(e) => toggleMenu()}
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
@@ -248,6 +236,15 @@
         onclick={(e) => toggleMenu()}
         class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
         >Pricing</a
+      >
+    </li>
+    <li class="overflow-hidden">
+      <a
+        bind:this={mobileLinksRef[3]}
+        href="/faq"
+        onclick={(e) => toggleMenu()}
+        class="block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform"
+        >Common Questions</a
       >
     </li>
     <li class="overflow-hidden">
