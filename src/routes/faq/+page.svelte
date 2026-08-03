@@ -89,7 +89,7 @@
       <span
         id="hero-tag"
         class="text-xs font-mono text-white/30 uppercase tracking-widest mb-8 block"
-        >FAQ</span
+        >Questions Decision-Makers Ask</span
       >
       <h1
         id="hero-headline"
@@ -101,8 +101,8 @@
         id="hero-subline"
         class="text-lg md:text-xl text-white/50 max-w-3xl mx-auto mt-12 font-sans font-light leading-relaxed"
       >
-        Everything you need to know about our process, digital marketing, SEO,
-        and Meta ads.
+        Answers to the most common questions regarding our process, technology
+        stack, and partnership models.
       </p>
     </div>
   </section>
@@ -112,7 +112,7 @@
     <div class="max-w-4xl mx-auto">
       <span
         class="text-xs font-mono text-white/50 uppercase tracking-widest mb-12 block reveal"
-        >About the Agency</span
+        >About the B2B Growth Studio</span
       >
       <div class="flex flex-col">
         {#each homepageFaqs as item, index}

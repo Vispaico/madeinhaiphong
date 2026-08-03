@@ -5,14 +5,6 @@
 
   const faqs = [
     {
-      q: "How is Made in Haiphong different from a typical marketing agency?",
-      a: "Most agencies sell deliverables—websites, ads, social media, SEO.\n\nWe are a Premium B2B Growth Studio that builds systems that generate business.\n\nOur work combines positioning, authority, AI automation, websites, content, and lead generation into one growth strategy designed to help established B2B companies become the obvious choice in their market.\n\nWe don't measure success by how many pages we design or posts we publish. We measure it by qualified opportunities, stronger market positioning, and long-term business growth.",
-    },
-    {
-      q: "Who do you typically work with?",
-      a: "We work with established B2B companies that have already built a great business but whose market presence doesn't reflect their expertise.\n\nMost of our clients are manufacturers, engineering companies, industrial suppliers, exporters, logistics companies, consultancies, software firms, and other professional service businesses.\n\nTypically, they're already successful—they simply don't look as successful online as they are in reality.",
-    },
-    {
       q: "How long does it take to see results?",
       a: "That depends on the engagement.\n\nA strategic positioning project can usually be completed within 2–4 weeks.\n\nWebsite redesigns, AI integration, and authority platforms typically launch within 4–8 weeks.\n\nLead generation, SEO, and authority-building are long-term growth systems that usually begin producing measurable results within 2–6 months and continue improving over time.\n\nOur goal isn't short-term spikes—it's building a growth engine that keeps generating opportunities.",
     },
@@ -30,7 +22,7 @@
     },
     {
       q: "How do we help you stand out from competitors?",
-      a: "Most competitors look the same because they say the same things.\n\n\"We deliver quality.\"\n\"We're customer focused.\"\n\"We have years of experience.\"\n\nNone of those statements help buyers choose between companies.\n\nWe help identify what genuinely makes your business different, then build that into your positioning, messaging, website, content, and digital presence.\n\nThe goal isn't to be louder than your competitors.\n\nIt's to become the obvious choice.",
+      a: 'Most competitors look the same because they say the same things.\n\n"We deliver quality."\n"We\'re customer focused."\n"We have years of experience."\n\nNone of those statements help buyers choose between companies.\n\nWe help identify what genuinely makes your business different, then build that into your positioning, messaging, website, content, and digital presence.\n\nThe goal isn\'t to be louder than your competitors.\n\nIt\'s to become the obvious choice.',
     },
     {
       q: "How much should a B2B website cost?",
@@ -80,11 +72,11 @@
     <div class="w-full md:w-1/3">
       <span
         class="text-sm font-mono text-white/50 uppercase tracking-widest mb-6 block"
-        >FAQ</span
+        >Common Questions</span
       >
       <h2 class="text-4xl md:text-5xl font-serif leading-tight">
-        Frequently<br />
-        <span class="italic text-white/40">Asked</span>
+        Questions <br />
+        <span class="italic text-white/40">Decision-Makers Ask</span>
       </h2>
       <p class="text-white/50 mt-6 font-sans font-light">
         Answers to the most common questions regarding our process, technology
@@ -95,7 +87,7 @@
         href="/faq"
         class="inline-flex items-center gap-2 mt-8 text-sm font-mono text-white/80 uppercase hover:text-white transition-colors group"
       >
-        View all FAQs
+        View all Questions
         <span
           class="w-8 h-px bg-white transform origin-left transition-transform duration-300 group-hover:scale-x-150"
         ></span>
