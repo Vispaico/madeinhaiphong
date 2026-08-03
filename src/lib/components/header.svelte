@@ -150,7 +150,7 @@
   </a>
 
   <!-- Desktop Nav -->
-  <div id="nav" class="md:block flex-1 flex justify-center px-4">
+  <div id="nav" class="hidden md:block flex-1 flex justify-center px-4">
     <ul class="flex space-x-8 text-sm font-medium text-white/70">
       <li bind:this={navItemsRef[0]}>
         <a href="/" class="hover:text-white transition-colors">Home</a>
