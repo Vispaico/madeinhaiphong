@@ -4,6 +4,7 @@
   import ScrollToPlugin from "gsap/ScrollToPlugin";
   import Logo from "./logo.svelte";
   import Menu from "@lucide/svelte/icons/menu";
+  import X from "@lucide/svelte/icons/x";
   import { openContactModal } from "$lib/stores/contactModal.svelte.js";
 
   let headerRef = $state();
@@ -149,7 +150,7 @@
   </a>
 
   <!-- Desktop Nav -->
-  <div id="nav" class="absolute left-1/2 -translate-x-1/2 hidden md:block">
+  <div id="nav" class="md:block flex-1 flex justify-center px-4">
     <ul class="flex space-x-8 text-sm font-medium text-white/70">
       <li bind:this={navItemsRef[0]}>
         <a href="/" class="hover:text-white transition-colors">Home</a>
@@ -187,7 +188,7 @@
         openContactModal();
       }}
       class="hidden md:flex items-center justify-center text-sm font-medium bg-white text-black hover:bg-white/80 transition-colors px-6 py-2 rounded-full cursor-pointer"
-      >Let's build it &rarr;</button
+      >Say Hi &rarr;</button
     >
     <button
       onclick={toggleMenu}
@@ -265,7 +266,7 @@
           openContactModal();
         }}
         class="inline-block text-xl font-sans text-white hover:text-white/80 transition-colors will-change-transform cursor-pointer bg-transparent border-none p-0"
-        >Let's build it &rarr;</button
+        >Say Hi &rarr;</button
       >
     </li>
   </ul>
