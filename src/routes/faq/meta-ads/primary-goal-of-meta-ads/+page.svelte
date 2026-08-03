@@ -13,7 +13,7 @@
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#050505_90%)]"></div>
     </div>
     <div class="max-w-5xl mx-auto text-center relative z-10">
-      <a href="/faq" class="text-xs font-mono text-white/40 hover:text-white uppercase tracking-widest mb-8 block transition-colors">&larr; Back to FAQ</a>
+      <a href="/faq" class="text-xs font-mono text-white/40 hover:text-white uppercase tracking-widest mb-8 block transition-colors">&larr; Back to Common Questions</a>
       <h1 class="text-[8vw] md:text-[4vw] font-serif leading-[1.1] tracking-tighter">What is the primary goal of Meta ads?</h1>
     </div>
   </section>

@@ -47,7 +47,7 @@
       <a
         href="/faq"
         class="text-white/60 hover:text-white font-sans text-sm transition-colors"
-        >FAQ</a
+        >Common Questions</a
       >
     </div>
 

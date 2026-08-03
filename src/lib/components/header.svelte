@@ -164,7 +164,9 @@
         >
       </li>
       <li bind:this={navItemsRef[1]}>
-        <a href="/faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="/faq" class="hover:text-white transition-colors"
+          >Common Questions</a
+        >
       </li>
       <li bind:this={navItemsRef[4]}>
         <a href="/journal" class="hover:text-white transition-colors"
